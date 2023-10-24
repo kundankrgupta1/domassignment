@@ -10,18 +10,18 @@
   <hr>
   <input type="text" id="name" placeholder="Enter your name">
   <select id="gender">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
+    <option value="">Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
   </select>
   <button onclick="Click()">Apply</button>
 </body>
 </html>
 <script>
   function Click() {
-    let name = document.getElementById('name').value;
-    let gender = document.getElementById('gender').value;
-
-    var displayElement = document.getElementById('display');
+    let name = document.getElementById("name").value;
+    let gender = document.getElementById("gender").value;
+    let displayElement = document.getElementById("display");
     displayElement.textContent =`${name}, ${gender}`;
   }
 </script>

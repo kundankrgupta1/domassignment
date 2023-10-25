@@ -28,33 +28,47 @@
 		function showName() {
 			let name = document.getElementById('name').value;
             let output1 = document.getElementById('dName');
-            output1.textContent = `NAME: ${name}`;
+            output1.textContent = `NAME ${name}`;
 		}
 
 		function showGender() {
 			let gender = document.getElementById('gender').value;
             let output2 = document.getElementById('dGender');
-            output2.textContent = `GENDER: ${gender}`;
+            output2.textContent = `GENDER ${gender}`;
 		}
 
 		function showEmail() {
 			let email = document.getElementById('email').value;
             let output3 = document.getElementById('dEmail');
-            output3.textContent = `EMAIL: ${email}`;
+            output3.textContent = `EMAIL ${email}`;
 		}
 
 		function showMobile() {
 			let mobile = document.getElementById('mobile').value;
             let output4 = document.getElementById('dMobile');
-            output4.textContent = `MOBILE: ${mobile}`;
+            output4.textContent = `MOBILE ${mobile}`;
 		}
 
 		function resetForm() {
-			
+			let name = document.getElementById('name');
+			let gender = document.getElementById('gender');
+			let email = document.getElementById('email');
+			let mobile = document.getElementById('mobile');
+			name.value = "";
+			gender.value = "";
+			email.value = "";
+			mobile.value = "";
 		}
 
 		function resetDisplay() {
-			// Reset all the headings (h1, h2, h3, h4) to blank values
+			let output1 = document.getElementById('dName');
+			let output2 = document.getElementById('dGender');            
+			let output3 = document.getElementById('dEmail');            
+			let output4 = document.getElementById('dMobile');
+            output1.textContent = `NAME`;
+			output2.textContent = `GENDER`;
+			output3.textContent = `EMAIL`;
+			output4.textContent =`MOBILE`;
 		}
 	</script>
 </body>

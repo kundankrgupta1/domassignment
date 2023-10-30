@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practise Selectors</title>
+  </head>
+  <body>
+    <h1>First H1</h1>
+    <h1>Second H1</h1>
+    <h3>First H3</h3>
+    <h3>Second H3</h3>
+    <h5>First H5</h5>
+    <h5>Second H5</h5>
+    <h5>Third H5</h5>
+    <div class="green">First DIV</div>
+    <div class="red">Second DIV</div>
+    <div class="blue">Third DIV</div>
+    <p class="green">First P</p>
+    <p class="red">Second P</p>
+    <p class="blue">Third P</p>
+    <hr />
+    <button onClick="changeH1()" id="h1_tag">Change H1</button>
+    <button onClick="changeH3()">Change H3</button>
+    <button onClick="changeH5()">Change H5</button>
+    <button onClick="changeGreen()">Change Green</button>
+    <button onClick="changeRed()">Change Red</button>
+    <button onClick="changeBlue()">Change Blue</button>
+    <script>
+      
+      function changeH1() {
+        let h1_tag = document.querySelectorAll('h1');
+        for(let i=0; i<h1_tag.length; i++){
+            h1_tag[i].style.color = "red";
+        }
+      }
+
+      function changeH3() {
+        let h3_tag = document.querySelectorAll('h3');
+        for(let i=0; i<h3_tag.length; i++){
+            h3_tag[i].style.color = "green";
+        }
+      }
+
+      function changeH5() {
+        let h5_tag = document.querySelectorAll('h5');
+        for(let i=0; i<h5_tag.length; i++){
+            h5_tag[i].style.color = "blue";
+        }
+      }
+
+      function changeGreen() {
+        let classNameGreen = document.getElementsByClassName('green');
+        for(let i=0; i<classNameGreen.length; i++) {
+            classNameGreen[i].style.color = "green";
+        }
+      }
+
+      function changeRed() {
+        let classNameRed = document.getElementsByClassName('red');
+        for(let i=0; i<classNameRed.length; i++){
+            classNameRed[i].style.color = "red";
+        }
+      }
+
+      function changeBlue() {
+        let classNameBlue = document.getElementsByClassName('blue');
+        for(let i=0; i<classNameBlue.length; i++){
+            classNameBlue[i].style.color = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>

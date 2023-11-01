@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        .parent{
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+        }
+
+        .bmi_cal{
+            width: 400px;
+        }
+
+        .result {
+            width: 400px;
+            text-align: left;
+        }
+
+        h1{
+            font-family: 'AR One Sans', sans-serif;
+            color: red;
+        }
+        #display{
+            text-align: left;
+        }
+        button{
+            width: 335px;
+            height: 40px;
+            background-color: rgb(39, 127, 241);
+            border: none;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1em;
+            border-radius: 8px;
+        }
+        input{
+            width: 115px;
+            height: 35px;
+            font-size: 1.5em;
+            border-radius: 8px;
+            padding-left: 5px;
+        }
+        label{
+            font-size: 1.5em;
+            position: relative;
+            font-weight: 400;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1><u>Check your BMI</u></h1>
+    <h2 class="h2">Enter your weight and height below to check your BMI result</h2>
+    <hr>
+    <div class="parent">
+            <div class="bmi_cal">
+            <label for="height"><b>Your Height(cm):</b>&nbsp;</label><input type="text" id="height" placeholder="cm">
+            <br>
+            <br>
+            <label for="height"><b>Your Weight(kg):</b>&nbsp;</label><input type="text" id="weight" placeholder="kg">
+            <br>
+            <br>
+            <button type="button" onclick="result()">Get your BMI</button>
+        </div>
+        <div class="result">
+            <h2 id="display"></h2>
+            <h2 id="category"></h2>
+        </div>
+    </div>    
+    <hr>
+    
+</body>
+<script>
+    function result() {
+        let height = document.getElementById('height').value;
+        let weight = document.getElementById('weight').value;
+        let category = document.getElementById('category');
+        
+        if(height === "" && weight === ""){
+            alert("Enter your Height & Weight");
+        }
+        else if(height === ""){
+            alert("Enter your Height");
+        }
+        else if(weight === ""){
+            alert("Enter your Weight");
+        }
+
+        let height_value = parseFloat(height);
+        let weight_value = parseFloat(weight);
+        let height_value_meter = (height_value/100);
+        let bmi = Math.floor(weight_value/(height_value_meter**2));
+        let result = document.getElementById('display');
+        result.innerText = `Your BMI: ${bmi}`;
+
+        let yourCategory = "";
+        if(bmi <= 18.4){
+            yourCategory = "UnderWeight";
+        }
+        else if(bmi >= 18.5 && bmi <= 24.9){
+            yourCategory = "Normal Weight";
+        }
+        else if(bmi >= 25 && bmi <= 29.9){
+            yourCategory = "Overweight";
+        }
+        else if(bmi >= 30){
+            yourCategory = "Obese";
+        }
+
+        category.textContent = `Your Category: ${yourCategory}`;
+    }
+</script>
+</html>

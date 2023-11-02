@@ -22,7 +22,7 @@
             width: 400px;
         }
 
-        .result {
+        .results {
             width: 400px;
             text-align: left;
         }
@@ -30,6 +30,10 @@
         h1{
             font-family: 'AR One Sans', sans-serif;
             color: red;
+        }
+        .h2{
+            font-family: 'AR One Sans', sans-serif;
+            color: blue;
         }
         #display{
             text-align: left;
@@ -74,7 +78,7 @@
             <br>
             <button type="button" onclick="result()">Get your BMI</button>
         </div>
-        <div class="result">
+        <div class="results">
             <h2 id="display"></h2>
             <h2 id="category"></h2>
         </div>
@@ -97,17 +101,22 @@
         else if(weight === ""){
             alert("Enter your Weight");
         }
+        // else{
+        //     result.innerText = "";
+        //     category.innerText= "";
+        // }
+
+        
 
         let height_value = parseFloat(height);
         let weight_value = parseFloat(weight);
         let height_value_meter = (height_value/100);
         let bmi = Math.floor(weight_value/(height_value_meter**2));
         let result = document.getElementById('display');
-        result.innerText = `Your BMI: ${bmi}`;
 
         let yourCategory = "";
         if(bmi <= 18.4){
-            yourCategory = "UnderWeight";
+            yourCategory = "Under Weight";
         }
         else if(bmi >= 18.5 && bmi <= 24.9){
             yourCategory = "Normal Weight";
@@ -118,7 +127,17 @@
         else if(bmi >= 30){
             yourCategory = "Obese";
         }
+        
+        // bmi.innerText = "";
+        // yourCategory = "";
 
+        // let getNull = document.getElementsByClassName('results');
+        // getNull.innerHTML = null;
+        // getNull.innerText = "";
+        
+        // bmi.style.color = "";
+
+        result.innerText = `Your BMI: ${bmi}`;
         category.textContent = `Your Category: ${yourCategory}`;
     }
 </script>

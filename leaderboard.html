@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaderBoard - Masai School</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    Enter Name: <input type="text" id="name">
+    <button onclick="Click()">Submit</button>
+    <h1 id="display"></h1>
+
+</body>
+<script>
+    
+    function Click(){
+        let name = document.getElementById('name').value;
+        let output = document.getElementById('display');
+        output.textContent = `${name}`;
+        alert("Yohave entered your name")
+    }
+</script>
+</html>

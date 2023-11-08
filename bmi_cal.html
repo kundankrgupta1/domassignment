@@ -128,17 +128,18 @@
             yourCategory = "Obese";
         }
         
-        // bmi.innerText = "";
-        // yourCategory = "";
-
-        // let getNull = document.getElementsByClassName('results');
-        // getNull.innerHTML = null;
-        // getNull.innerText = "";
+                
         
-        // bmi.style.color = "";
+        
+        if(bmi >= 0){
+            result.innerText = `Your BMI: ${bmi}`;
+            category.textContent = `Your Category: ${yourCategory}`;
+        }
 
-        result.innerText = `Your BMI: ${bmi}`;
-        category.textContent = `Your Category: ${yourCategory}`;
+        // else{
+        //     alert("Enter Valid Data");
+        // }
+        
     }
 </script>
 </html>

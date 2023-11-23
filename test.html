@@ -5,117 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator - Masai School</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        * {
+        *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            justify-content: center;
-            align-items: center;
+        body{
             display: flex;
-            height: 100vh;
-        }
-
-        .main_box {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid red;
-            border-radius: 10px;
-        }
-
-        .main_box > h1 {
-            background-color: blue;
-            text-align: center;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            color: #ffff;
-        }
-        
-        .main_box > #display {
-            background-color: red;
-            height: 100px;
-            font-weight: 700;
-            font-size: 3em;
-            text-align: right;
-            font-family: Eras Demi ITC, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .calculator {
-            display: grid;
-            grid-template-columns: repeat(4, 70px);
-            grid-template-rows: repeat(5, 70px);
-            gap: 10px;
-            margin: 15px;
-            
-        }    
-        .calculator > button {
-            border-radius: 50%;
-            /* border: 1px solid black; */
-            border: none;
-            font-size: 2em;
-            font-weight: 700;
-            font-family: Eras Demi ITC, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            cursor: pointer;
-        }
-        /* .equal_btn {
-            grid-column-start: 3;
-            grid-column-end: 5;
-            border-radius: 20px;
-        } */
-        .red {
-            background-color: red;
-            color: #ffff;
-        }
-        .black {
-            background-color: rgb(43, 40, 40);
-            color: #ffff;
-        }
-        .blue {
-            background-color: teal;
         }
     </style>
 </head>
 <body>
-    <div class="main_box">
-        <h1>Masai Calculator</h1>
-        <h2 id="display">&nbsp;</h2>
-        <div class="calculator">
-            <button value="ac" id="ac" onclick="clr()" class="blue">AC</button>
-            <button value="%" id="percent" onclick="percent()" class="black">%</button>
-
-            <!-- blow button is for divide -->
-            <button value="/" id="div" onclick="div()" class="black">&#xf7;</button>
-
-            <!-- blow button is for delete -->
-            <button value="" id="del" onclick="del()" class="red">&#11164;</button>
-
-            <button value="1" id="one" onclick="one()">1</button>
-            <button value="2" id="two" onclick="two()">2</button>
-            <button value="3" id="three" onclick="three()">3</button>
-            <button value="*" id="multi" onclick="multi()" class="black">&#xd7;</button>
-            <button value="4" id="four" onclick="four()">4</button>
-            <button value="5" id="five" onclick="five()">5</button>
-            <button value="6" id="six" onclick="six()">6</button>
-            <button value="-" id="sub" onclick="sub()" class="black">-</button>
-            <button value="7" id="seven" onclick="seven()">7</button>
-            <button value="8" id="eight" onclick="eight()">8</button>
-            <button value="9" id="nine" onclick="nine()">9</button>
-            <button value="+" id="plus" onclick="plus()" class="plus_btn black">+</button>
-            <button value="0" id="zero" onclick="zero()">0</button>
-            <button value="00" id="double_zero" onclick="double_zero()">00</button>
-            <button value="." id="dot" onclick="dot()">.</button>          
-            <button value="=" id="equal" onclick="equal()" class="equal_btn black">=</button>
-            <!-- &#128281; -->
+    <div class="container">
+        <h1>FIRST VALUE + LST VALUE</h1>
+        <h2>result</h2>
+        <div class="grid">
+            <button>AC</button>
+            <button>DEL</button>
+            <button>%</button>
+            <button>/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>0</button>
+            <button>00</button>
+            <button>.</button>
+            <button>=</button>
         </div>
     </div>
 </body>
-<script>
-    function one() {
-        let x = document.getElementById("one").value;
-        let display = document.getElementById("display");
-    }
-</script>
 </html>
+
+<!-- ================================================================ -->
+

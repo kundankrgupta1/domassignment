@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User name generator</title>
+</head>
+<body>
+    <h1>Generate Your User Name</h1>
+    <label for="name">Full Name: </label>
+    <input type="text" id="name">
+    <button onclick="submit()">Generate</button>
+    <!-- <div class="div"></div> -->
+</body>
+</html>
+<script>
+    function submit() {
+        let fullName = document.getElementById('name').value;
+        let body = document.querySelector('body');
+
+        let lowerCase = fullName.toLowerCase();
+        let eraseSpace = (lowerCase.replaceAll(' ', ''));
+        let createUsername = "@" + eraseSpace + (eraseSpace.length);
+        
+        let h1 = document.createElement('h1');
+        h1.innerText = `Your username is: ${createUsername}`;
+        body.append(h1);
+    }
+
+</script>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 50px;
+            color: blue;
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-family: monospace;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        /* start */
+        div{
+            display: flex;
+            justify-content: space-around;
+            /* font-family: 'Montserrat', sans-serif; */
+            font-weight: 700;
+        }
+        form{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 30px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border-radius: 5px;
+            width: 30%;
+        }
+        
+        label{
+            font-size: 20px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border-radius: 5px;
+            border: 1px solid black;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        input[type="submit"] {
+            background-color: red;
+            width: 100%;
+            padding: 12px 20px;
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        /* end */
+
+
+        table{
+            margin: auto;
+            width: 60%;
+            margin-top: 50px;
+            text-align: center;
+            border-collapse: collapse;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        table th{
+            background-color: red;
+            /* padding: 12px 0 12px 0; */
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: aqua;
+        }
+
+        /* table tr:nth-child(odd) {
+            background-color: rgb(4, 189, 189);
+        } */
+
+        table td,
+        table th {
+            border: 1px solid rgb(211, 211, 211);
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>masai employee records</h1>
+    <div>
+        <form action="">
+            <label for="">Employee Name</label></br>
+            <input id="employee_name" type="text" placeholder="Enter Employee Name" required></br>
+
+            <label for="">Employee ID</label></br>
+            <input id="employee_id" type="text" placeholder="Enter Employee ID" required></br>
+
+            <label for="">Department</label></br>
+            <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="Frontend">Frontend</option>
+                <option value="Backend">Backend</option>
+                <option value="Operations">Operations</option>
+                <option value="HR">HR</option>
+                <option value="IA">IA</option>
+            </select></br>
+
+            <label for="">Experience</label></br>
+            <input id="experience" type="text" placeholder="Experience in year" required></br>
+
+            <label for="">Email Address</label></br>
+            <input id="email_address" type="text" placeholder="Enter Email Address" required></br>
+
+            <label for="">Mobile Number</label></br>
+            <input id="mobile_number" type="text" placeholder="Enter Mobile Number" required></br>
+
+            <input type="submit" value="Submit">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Employee ID</th>
+                    <th>Department</th>
+                    <th>Experience in Years</th>
+                    <th>Email Address</th>
+                    <th>Mobile Number</th>
+                    <th>Role</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    let myForm = document.querySelector('form');
+    let employee_name = document.getElementById('employee_name');
+    let employee_id = document.getElementById('employee_id');
+    let department = document.getElementById('department');
+    let experience = document.getElementById('experience');
+    let email_address = document.getElementById('email_address');
+    let mobile_number = document.getElementById('mobile_number');
+    let role = document.createElement('td');
+    let tbody = document.querySelector('tbody');
+
+    allData = [];
+
+    myForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        objData = {};
+        objData.employee_name = employee_name.value;
+        objData.employee_id = employee_id.value;
+        objData.department = department.value;
+        objData.experience = experience.value;
+        objData.email_address = email_address.value;
+        objData.mobile_number = mobile_number.value;
+        allData.push(objData);
+        tbody.innerHTML = "";
+
+        allData.map((el) => {
+            let row = document.createElement('tr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+            let td5 = document.createElement('td');
+            let td6 = document.createElement('td');
+            let role = document.createElement('td');
+            let delet = document.createElement('td');
+
+            td1.innerText = el.employee_name;
+            td2.innerText = el.employee_id;
+            td3.innerText = el.department;
+            td4.innerText = el.experience;
+            td5.innerText = el.email_address;
+            td6.innerText = el.mobile_number;
+            delet.innerText = "Delete"
+
+            row.append(td1, td2, td3, td4, td5, td6);
+            tbody.append(row);
+        })
+    })
+</script>
+</html>

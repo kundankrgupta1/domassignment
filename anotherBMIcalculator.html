@@ -1,0 +1,205 @@
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form {
+            width: 400px;
+            border: 2px solid red;
+            border-radius: 5px;
+            background: none;
+            padding: 30px;
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        .btn > button {
+            background: none;
+            text-decoration: underline;    
+            border: none;        
+            color: blue;
+            cursor: pointer;
+        }
+        #heading {
+            font-family: 'AR One Sans', sans-serif;
+            color: red;
+            text-align: center;
+        }
+
+        #display, #inputHeight, #inputWeight, #lableHeight, #lableWeight{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        #inputHeight, #inputWeight {
+            border: 2px solid black;
+            margin-top: 5px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #btnSbt{
+            width: 100%;
+            height: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(11, 11, 250);
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1" class="form">
+        <div class="btn">
+            <button onclick="openForm()" id="hide">Check your BMI here >></button>
+        </div>
+    </div>
+</body>
+<script>
+    function openForm() {
+        let heading = document.createElement("h1");
+        heading.style.marginBottom = "10px";
+        heading.setAttribute("id", "heading");
+        heading.innerText = "Check your BMI";
+
+        let hrLine = document.createElement("HR");
+        hrLine.style.marginBottom = "20px";
+
+        // first input for height;
+        let label_for_height = document.createElement("LABEL");
+        label_for_height.innerText = "Enter Your Height (cm): ";
+        label_for_height.setAttribute("id", "lableHeight");
+
+        let input_for_height = document.createElement('INPUT');
+        input_for_height.setAttribute("type", "text");
+        input_for_height.setAttribute("id", "inputHeight");
+        input_for_height.setAttribute("placeholder", "Enter Your Height");
+
+        let breakLine1 = document.createElement("br");
+        let breakLine2 = document.createElement("br");
+
+        // second input for weight;
+        let label_for_weight = document.createElement("LABEL");
+        label_for_weight.innerText = "Enter Your Weight (kg): ";
+        label_for_weight.setAttribute("id", "lableWeight");
+
+        let input_for_weight = document.createElement('INPUT');
+        input_for_weight.setAttribute("type", "text");
+        input_for_weight.setAttribute("id", "inputWeight");
+        input_for_weight.setAttribute("placeholder", "Enter Your Weight");
+
+        let breakLine3 = document.createElement("br");
+        let breakLine4 = document.createElement("br");
+
+        // submit button
+        let btn = document.createElement("input");
+        btn.setAttribute("type", "button");
+        btn.setAttribute("value", "Get Your BMI");
+        btn.setAttribute("onclick", "calculate()");
+        btn.setAttribute("id", "btnSbt");
+
+        // display area1
+        let h1_for_dispalay1 = document.createElement("h3");
+        h1_for_dispalay1.setAttribute("id", "display1");
+
+        // display area2
+        let h1_for_dispalay2 = document.createElement("h3");
+        h1_for_dispalay2.setAttribute("id", "display2");
+
+        // display area3
+        let h1_for_dispalay3 = document.createElement("h3");
+        h1_for_dispalay3.setAttribute("id", "display3");
+
+        // display area4
+        let h1_for_dispalay4 = document.createElement("h3");
+        h1_for_dispalay4.setAttribute("id", "display4");
+
+        // append
+        let div1 = document.querySelector('#div1');
+        div1.append(heading);
+        div1.append(hrLine);
+        div1.append(label_for_height);
+        div1.append(input_for_height);
+        div1.append(breakLine1);
+        div1.append(breakLine2);
+        div1.append(label_for_weight);
+        div1.append(input_for_weight);
+        div1.append(breakLine3);
+        div1.append(breakLine4);
+        div1.append(btn);
+        div1.append(h1_for_dispalay1);
+        div1.append(h1_for_dispalay2);
+        div1.append(h1_for_dispalay3);
+        div1.append(h1_for_dispalay4);
+    }
+
+    function calculate() {
+        let inputHeight = document.getElementById("inputHeight").value;
+        let inputWeight = document.getElementById("inputWeight").value;
+        let display1 = document.getElementById('display1');
+        let display2 = document.getElementById('display2');
+        let display3 = document.getElementById('display3');
+        let display4 = document.getElementById('display4');
+        
+        if(inputHeight === "" && inputWeight === ""){
+            alert("Enter your Height & Weight");
+        }
+        else if(inputHeight === ""){
+            alert("Enter your Height");
+        }
+        else if(inputWeight === ""){
+            alert("Enter your Weight");
+        }
+
+        inputHeight = parseFloat(inputHeight/100);
+        let bmi = Math.floor(inputWeight/(inputHeight**2));
+
+        let yourCategory = "";
+        if(bmi <= 18.4){
+            yourCategory = "Under Weight";
+        }
+        else if(bmi >= 18.5 && bmi <= 24.9){
+            yourCategory = "Normal Weight";
+        }
+        else if(bmi >= 25 && bmi <= 29.9){
+            yourCategory = "Overweight";
+        }
+        else if(bmi >= 30){
+            yourCategory = "Obese";
+        }
+
+        if (inputHeight > 0 && inputWeight != "") {
+            display1.innerHTML = `Height: ${inputHeight*100}cm`;
+        }
+        
+        if (inputWeight > 0 && inputHeight != "") {
+            display2.innerHTML = `Weight: ${inputWeight}kg`;
+        }
+
+        if (bmi > 0 && bmi != Infinity) {
+            display3.innerHTML = `BMI: ${bmi}`;
+            display4.innerHTML = `Category: ${yourCategory}`;
+        }
+    }
+    // function openForm() {
+    //     let hider = document.getElementById('hide');
+    //     hider.style.visibility = "hidden";
+    // }
+</script>

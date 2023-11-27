@@ -17,6 +17,20 @@
         this.section = section;
         this.marks_of_5_subjects = marks_of_5_subjects;
 
+
+        this.printTop3Subjects = function () {
+            const subjectsArray = Object.entries(this.marks_of_5_subjects);
+            subjectsArray.sort((a, b) => b[1] - a[1]);
+
+            console.log("Top 3 Subjects:");
+
+            for (let i = 0; i < 3; i++) {
+            const subject = subjectsArray[i];
+            console.log(`${i + 1}. ${subject[0]}: ${subject[1]}`);
+            }
+        };
+        this.printTop3Subjects()
+
         this.printReportCard = function() {
             console.log("+------------------------+");
             console.log("|      Report Card       |");

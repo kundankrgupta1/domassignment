@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/45f40d86eb.js" crossorigin="anonymous"></script>
+    <title>Counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Poppins, sans-serif;
+        }
+        
+        #display{
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 900;
+            background-color: rgb(14, 14, 245);
+            color: #fff;
+        }
+
+        #buttonsArea {
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Poppins, sans-serif;
+            padding: 0 10px;
+            border: none;
+            background-color: rgb(14, 14, 245);
+            color: #fff;
+            font-size: 40px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- display div -->
+        <div id="display">0</div>
+
+        <!-- buttons div -->
+        <div id="buttonsArea">
+            <!-- start and stop button by single button -->
+            <button id="startStopBtn" onclick="startStopBtnFun()">
+                <i class="fa-solid fa-circle-play" id="start"></i> <i class="fa-solid fa-circle-stop" id="stops"></i>
+            </button>
+
+            <!-- increament button -->
+            <button id="increament" onclick="increamentBtnFun()">
+                <i class="fa-solid fa-circle-up"></i>
+            </button>
+
+            <!-- decreament button -->
+            <button id="decreament" onclick="decreamentBtnFun()">
+                <i class="fa-solid fa-circle-down"></i>
+            </button>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<script>
+    let displayDiv = document.getElementById('display');
+    displayDiv.textContent = 0;
+
+    let startStopBtn = document.getElementById("startStopBtn");
+
+    // catch start and stop button icon
+    let start = document.getElementById("start");
+    start.style.display = "block";
+    let stops = document.getElementById("stops");
+    stops.style.display = "none";
+
+    let myInterval = null;
+
+    function startStopBtnFun() {
+        if(start.style.display === "block") {
+            myInterval = setInterval( () => {
+                let count = Number(displayDiv.textContent);
+                count++;
+                displayDiv.textContent = count;
+            }, 1000);
+            start.style.display = "none";
+            stops.style.display = "block";
+            startStopBtn.style.backgroundColor = "red";
+        }
+        else {
+            clearInterval(myInterval);
+            start.style.display = "block";
+            stops.style.display = "none";
+        }
+    }
+    
+    function increamentBtnFun() {
+        if(stops.style.display === "block") {
+            start.style.display = "block";
+            startStopBtn.style.backgroundColor = "rgb(14, 14, 245)";
+            stops.style.display = "none";
+        }
+        let count = Number(displayDiv.textContent);
+        count++;
+        displayDiv.textContent = count;
+        clearInterval(myInterval);
+        myInterval = null;
+    }
+    
+    function decreamentBtnFun() {
+        if(stops.style.display === "block") {
+            start.style.display = "block";
+            startStopBtn.style.backgroundColor = "rgb(14, 14, 245)";
+            stops.style.display = "none";
+        }
+        let count = Number(displayDiv.textContent);
+        count--;
+        displayDiv.textContent = count;
+        clearInterval(myInterval);
+        myInterval = null;
+    }
+</script>
